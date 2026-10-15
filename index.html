@@ -1,0 +1,343 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>A Little Question 💗</title>
+
+<style>
+* { box-sizing: border-box; }
+
+:root {
+  --pink: #ff5caa;
+  --purple: #9c65ff;
+  --bg: #090711;
+}
+
+body {
+  margin: 0;
+  min-height: 100vh;
+  overflow: hidden;
+  display: grid;
+  place-items: center;
+  font-family: "Segoe UI", sans-serif;
+  color: white;
+  background:
+    radial-gradient(ellipse at 50% 35%, #32122f 0%, transparent 55%),
+    radial-gradient(ellipse at 10% 90%, #171333 0%, transparent 50%),
+    var(--bg);
+}
+
+.aurora {
+  position: fixed;
+  width: 340px;
+  height: 340px;
+  border-radius: 50%;
+  background: #ff3d9b;
+  filter: blur(130px);
+  opacity: .16;
+  animation: aurora 7s ease-in-out infinite alternate;
+  pointer-events: none;
+}
+
+@keyframes aurora {
+  to { transform: translate(100px, -50px) scale(1.25); }
+}
+
+#particles {
+  position: fixed;
+  inset: 0;
+  overflow: hidden;
+  pointer-events: none;
+}
+
+.particle {
+  position: absolute;
+  bottom: -30px;
+  color: #ff79b8;
+  opacity: 0;
+  animation: floatUp linear forwards;
+}
+
+@keyframes floatUp {
+  10% { opacity: .7; }
+  100% {
+    transform: translateY(-110vh) rotate(35deg);
+    opacity: 0;
+  }
+}
+
+.card {
+  position: relative;
+  z-index: 2;
+  width: min(440px, calc(100% - 34px));
+  padding: 42px 25px;
+  text-align: center;
+  border: 1px solid #ffffff20;
+  border-radius: 28px;
+  background: #ffffff09;
+  backdrop-filter: blur(22px);
+  box-shadow: 0 20px 90px #0006, 0 0 50px #ff4a9b0b;
+  animation: appear 1s ease both;
+}
+
+@keyframes appear {
+  from { opacity: 0; transform: translateY(22px) scale(.96); }
+  to { opacity: 1; transform: translateY(0) scale(1); }
+}
+
+.heart {
+  font-size: 66px;
+  display: inline-block;
+  filter: drop-shadow(0 0 20px #ff3c98aa);
+  animation: heartbeat 1.5s ease-in-out infinite;
+}
+
+@keyframes heartbeat {
+  0%, 100% { transform: scale(1); }
+  15% { transform: scale(1.13); }
+  30% { transform: scale(1); }
+  45% { transform: scale(1.08); }
+}
+
+.tag {
+  color: #ff9ccc;
+  letter-spacing: 4px;
+  font-size: 10px;
+  margin: 19px 0;
+}
+
+h1 {
+  font-size: clamp(27px, 7vw, 37px);
+  line-height: 1.25;
+  margin: 12px 0;
+  letter-spacing: -1px;
+}
+
+h1 span {
+  color: #ff80bb;
+}
+
+.description {
+  color: #c5bdce;
+  line-height: 1.8;
+  font-size: 14px;
+  margin: 17px auto 26px;
+}
+
+.buttons {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 13px;
+  flex-wrap: wrap;
+  min-height: 55px;
+}
+
+button {
+  border: 0;
+  border-radius: 13px;
+  padding: 15px 24px;
+  font-weight: 700;
+  font-size: 14px;
+  cursor: pointer;
+  transition: transform .2s, box-shadow .2s, background .2s;
+}
+
+button:active { transform: scale(.94); }
+
+#yes {
+  color: white;
+  background: linear-gradient(135deg, #ff4a9b, #b44dff);
+  box-shadow: 0 7px 27px #ff3d9844;
+}
+
+#yes:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 10px 35px #ff3d9877;
+}
+
+#no {
+  color: #f1dce9;
+  background: #ffffff10;
+  border: 1px solid #ffffff20;
+}
+
+#no:hover { background: #ffffff1a; }
+
+.note {
+  font-size: 11px;
+  color: #91869d;
+  margin-top: 26px;
+}
+
+#result { display: none; }
+
+.big-heart {
+  font-size: 86px;
+  animation: celebrate .8s cubic-bezier(.2,1.7,.4,1) both;
+}
+
+@keyframes celebrate {
+  from { transform: scale(0) rotate(-20deg); }
+  to { transform: scale(1) rotate(0); }
+}
+
+.shake { animation: shake .4s ease; }
+
+@keyframes shake {
+  25% { transform: translateX(-6px) rotate(-2deg); }
+  50% { transform: translateX(6px) rotate(2deg); }
+  75% { transform: translateX(-3px); }
+}
+
+.signature {
+  margin-top: 22px;
+  color: #ff9ccc;
+  font-size: 12px;
+  letter-spacing: 2px;
+}
+
+#again {
+  margin-top: 10px;
+  color: white;
+  background: #ffffff12;
+  border: 1px solid #ffffff20;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    animation-duration: .01ms !important;
+    transition-duration: .01ms !important;
+  }
+}
+</style>
+</head>
+
+<body>
+<div class="aurora"></div>
+<div id="particles"></div>
+
+<main class="card" id="card">
+  <section id="question">
+    <div class="heart">💗</div>
+    <div class="tag">A LITTLE SECRET</div>
+
+    <h1>Hey, <span>you...</span></h1>
+
+    <p class="description">
+      There's something I've been wanting to ask you.<br>
+      Just one little question, from my heart.
+    </p>
+
+    <h1 style="font-size:28px">
+      Do you love me? 🥹
+    </h1>
+
+    <p class="description">
+      Take your time. Your honest answer matters to me. 💌
+    </p>
+
+    <div class="buttons">
+      <button id="yes">YES 💖</button>
+      <button id="no">NO 🙈</button>
+    </div>
+
+    <div class="note">MADE WITH A LITTLE EXTRA COURAGE ✨</div>
+  </section>
+
+  <section id="result">
+    <div class="big-heart">💖</div>
+    <div class="tag">MY HEART IS SMILING</div>
+    <h1 id="resultTitle">WAIT... REALLY?! 🥹</h1>
+
+    <p class="description" id="resultText">
+      You just made this moment so special.
+      I'm smiling way too much right now. 💗
+    </p>
+
+    <div class="signature">A LITTLE MOMENT, A BIG FEELING ✨</div>
+    <button id="again">Replay the magic ↻</button>
+  </section>
+</main>
+
+<script>
+const yes = document.getElementById("yes");
+const no = document.getElementById("no");
+const question = document.getElementById("question");
+const result = document.getElementById("result");
+const card = document.getElementById("card");
+const particles = document.getElementById("particles");
+
+let noCount = 0;
+let transformed = false;
+
+function makeParticle(symbol) {
+  const p = document.createElement("span");
+  p.className = "particle";
+  p.textContent = symbol;
+  p.style.left = Math.random() * 100 + "vw";
+  p.style.fontSize = (12 + Math.random() * 22) + "px";
+  p.style.animationDuration = (4 + Math.random() * 5) + "s";
+  particles.appendChild(p);
+  setTimeout(() => p.remove(), 9500);
+}
+
+function heartBurst(amount = 35) {
+  const symbols = ["💗", "💕", "💖", "✨", "♡"];
+  for (let i = 0; i < amount; i++) {
+    setTimeout(() => {
+      makeParticle(symbols[Math.floor(Math.random() * symbols.length)]);
+    }, i * 35);
+  }
+}
+
+setInterval(() => {
+  if (particles.childElementCount < 20) makeParticle("♡");
+}, 650);
+
+yes.addEventListener("click", () => {
+  question.style.display = "none";
+  result.style.display = "block";
+  heartBurst(55);
+});
+
+no.addEventListener("click", () => {
+  noCount++;
+  card.classList.remove("shake");
+  void card.offsetWidth;
+  card.classList.add("shake");
+
+  if (!transformed) {
+    transformed = true;
+    no.textContent = "YES? 🥹💗";
+    no.style.background = "linear-gradient(135deg, #ff4a9b, #b44dff)";
+    no.style.color = "white";
+    no.style.border = "none";
+    heartBurst(12);
+  } else {
+    // Keep the answer honest and pressure-free.
+    question.innerHTML = `
+      <div class="heart">💌</div>
+      <div class="tag">THANK YOU FOR BEING HONEST</div>
+      <h1>It's okay. <span>Really.</span></h1>
+      <p class="description">
+        Your feelings matter, and I respect your answer.
+        Thank you for hearing me out. 💗
+      </p>
+      <button id="back">Go back ↶</button>
+    `;
+
+    document.getElementById("back").addEventListener("click", () => {
+      location.reload();
+    });
+  }
+});
+
+document.getElementById("again").addEventListener("click", () => {
+  location.reload();
+});
+</script>
+</body>
+</html>
