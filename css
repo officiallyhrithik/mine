@@ -1,0 +1,59 @@
+
+:root {
+  --bg: #171411;
+  --card: #211c19;
+  --gold: #C9A477;
+  --gold-light: #D8B98D;
+  --cream: #F4E6D8;
+  --muted: #BDB0A0;
+  --border: #544137;
+}
+
+body {
+  background: #171411 !important;
+  color: #F4E6D8 !important;
+}
+
+.card {
+  background: #211c19 !important;
+  border: 1px solid #544137 !important;
+  box-shadow: 0 25px 80px #0005 !important;
+}
+
+h1, h2, p {
+  color: #F4E6D8;
+}
+
+h1 span,
+.eyebrow,
+.note,
+.signature {
+  color: #C9A477 !important;
+}
+
+.heart,
+.big-heart {
+  color: #C9A477 !important;
+  filter: drop-shadow(0 0 12px #C9A47730) !important;
+}
+
+#yes {
+  background: #C9A477 !important;
+  color: #171411 !important;
+  border: 1px solid #C9A477 !important;
+  box-shadow: none !important;
+}
+
+#yes:hover {
+  background: #D8B98D !important;
+}
+
+#no {
+  background: transparent !important;
+  color: #F4E6D8 !important;
+  border: 1px solid #79675B !important;
+}
+
+#particles .particle {
+  color: #C9A477 !important;
+}
